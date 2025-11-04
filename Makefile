@@ -12,3 +12,6 @@ project:
 
 package-install:
 	poetry install
+
+lint:
+	poetry run ruff check .
