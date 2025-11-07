@@ -1,5 +1,7 @@
 import math
+
 from labyrinth_game.constants import ROOMS
+
 
 def describe_current_room(game_state):
     room_name = game_state['current_room']
@@ -65,7 +67,10 @@ def random_event(game_state):
         if 'sword' in game_state['player_inventory']:
             print("Ваш меч отпугнул нечто, что могло напасть.")
     elif event_type == 2:
-        if game_state['current_room'] == 'trap_room' and 'torch' not in game_state['player_inventory']:
+        if (
+        game_state['current_room'] == 'trap_room' and 'torch' 
+        not in game_state['player_inventory']
+        ):
             print("Внимание! В комнате опасно!")
             trigger_trap(game_state)
 

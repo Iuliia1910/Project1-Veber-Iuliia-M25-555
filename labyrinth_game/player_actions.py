@@ -1,7 +1,8 @@
 # labyrinth_game/player_actions.py
 
 from labyrinth_game.constants import ROOMS
-from labyrinth_game.utils import describe_current_room, random_event, pseudo_random, trigger_trap
+from labyrinth_game.utils import describe_current_room, random_event
+
 
 def move_player(game_state, direction):
     current_room = game_state['current_room']
@@ -14,7 +15,10 @@ def move_player(game_state, direction):
     next_room = room_data['exits'][direction]
 
     # Проверка для входа в treasure_room
-    if next_room == 'treasure_room' and 'rusty_key' not in game_state['player_inventory']:
+    if (
+    next_room == 'treasure_room' and 'rusty_key' 
+    not in game_state['player_inventory']
+    ):
         print("Дверь заперта. Нужен ключ, чтобы пройти дальше.")
         return
     elif next_room == 'treasure_room':

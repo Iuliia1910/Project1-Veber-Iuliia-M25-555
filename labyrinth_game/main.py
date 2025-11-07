@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
 
-from labyrinth_game.constants import ROOMS, COMMANDS
-from labyrinth_game.utils import describe_current_room, solve_puzzle, attempt_open_treasure, show_help, get_input, pseudo_random, trigger_trap, random_event
-from labyrinth_game.player_actions import move_player, take_item, use_item, show_inventory
+from labyrinth_game.utils import (
+    attempt_open_treasure,
+    describe_current_room,
+    get_input,
+    solve_puzzle, 
+    show_help
+    )
+    
+from labyrinth_game.player_actions import (
+    move_player, 
+    take_item, 
+    use_item, 
+    show_inventory
+    )
 
 def process_command(game_state, command):
     parts = command.strip().lower().split()
@@ -49,7 +60,10 @@ def process_command(game_state, command):
             print("Выход из игры. До встречи!")
             game_state['game_over'] = True
         case _:
-            print("Неизвестная команда. Введите 'help' для списка команд.")
+            print(
+            "Неизвестная команда."
+            "Введите 'help' для списка команд."
+            )
 
 def main():
     game_state = {
